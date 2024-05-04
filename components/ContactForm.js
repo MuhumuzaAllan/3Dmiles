@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import emailjs from 'emailjs-com';
 import { BsArrowBarRight } from 'react-icons/bs';
 
 const ContactForm = () => {
@@ -11,19 +11,12 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = {
-      name,
-      email,
-      subject,
-      message,
-    };
-
     try {
-      const response = await axios.post('/api/sendEmail', formData);
-      console.log(response.data);
+      await emailjs.sendForm('service_z00irau', 'template_2bddlsg', e.target, '_aW4PQZFDB06DM6PD');
+      console.log('Email successfully sent!');
       // Handle success, e.g., display a success message
     } catch (error) {
-      console.error(error);
+      console.error('Error sending email:', error);
       // Handle error, e.g., display an error message
     }
 
@@ -35,21 +28,20 @@ const ContactForm = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex-1 flex flex-col gap-6 w-full mx-auto"
-    >
+    <form onSubmit={handleSubmit} className="flex-1 flex flex-col gap-6 w-full mx-auto">
       {/* input group */}
       <div className="flex gap-x-6 w-full">
         <input
           type="text"
+          name="user_name" // Updated name attribute
           placeholder="name"
           className="input"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
-          type="text"
+          type="email"
+          name="user_email" // Updated name attribute
           placeholder="email"
           className="input"
           value={email}
@@ -58,12 +50,14 @@ const ContactForm = () => {
       </div>
       <input
         type="text"
+        name="subject" // Updated name attribute
         placeholder="subject"
         className="input"
         value={subject}
         onChange={(e) => setSubject(e.target.value)}
       />
       <textarea
+        name="message" // Updated name attribute
         placeholder="message"
         className="textarea"
         value={message}

@@ -9,7 +9,7 @@ export default async (req, res) => {
     secure: false,
     auth: {
       user: 'mileslegend7@gmail.com',
-      pass: 'JESUS@20',
+      pass: '',
     },
   });
 
