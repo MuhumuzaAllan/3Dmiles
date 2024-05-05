@@ -22,9 +22,11 @@ import {
 //  data
 const aboutData = [
   {
+    id: 1,
     title: 'skills',
     info: [
       {
+        id: 1,
         title: 'Web Development',
         icons: [
           <FaHtml5 />,
@@ -37,53 +39,65 @@ const aboutData = [
         ],
       },
       {
+        id: 2,
         title: 'UI/UX Design',
         icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
       },
     ],
   },
   {
+    id: 2,
     title: 'awards',
     info: [
       {
+        id: 1,
         title: 'Galactic Problem solver NASA SPACE APPS ',
         stage: '2023 - 2024',
       },
       {
+        id: 2,
         title: 'Figma Design Achievement Awards - Finalist',
         stage: '2023 - 2024',
       },
     ],
   },
   {
+    id: 3,
     title: 'experience',
     info: [
       {
+        id: 1,
         title: 'UX/UI Designer - Flawless Designs',
         stage: '2023 - date',
       },
       {
+        id: 2,
         title: 'Web Developer - Muhuan developers',
         stage: '2023 - date',
       },
       {
+        id: 3,
         title: 'React native Mobile Apps Development',
         stage: '2024 - date',
       },
     ],
   },
   {
+    id: 4,
     title: 'value',
     info: [
       {
+        id: 1,
         title: 'Our Expert Team of Web Developers',
         stage: '2023 - Present',
       },
       {
+        id: 2,
         title: 'Successful Website Projects',
         stage: '2023 - present',
       },
       {
+        id: 3,
         title: 'Client Satisfaction and Recognition',
         stage: '2023 - present',
       },
@@ -185,7 +199,7 @@ const About = () => {
                    {/* icons */}
                     {item.icons?.map((icon, itemIndex) => {
                       return (
-                      <div className='text-2xl text-white ' > {icon} </div>
+                      <div key={itemIndex} className='text-2xl text-white ' > {icon} </div>
                      ) 
                      })}
                   </div>
